@@ -3,6 +3,7 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  a(href="/leads") Show leads
   form(action="/", method="POST")
     input(name="lead_email", type="email", placeholder="Enter your email address")
     button(type="submit") Submit
