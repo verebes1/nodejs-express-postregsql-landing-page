@@ -1,7 +1,7 @@
 
 
 function deleteLead(leadId) {
-	console.log("DELETE FUNCTION INVOKED")
+	// console.log("DELETE FUNCTION INVOKED")
 	$.ajax({
 		url: '/lead/' + leadId + '/delete-json',
 		contentType: 'application/json; charset=utf-8',
