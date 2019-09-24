@@ -1,11 +1,15 @@
 doctype html
-html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+html(lang='en')
+  include common/head.pug
+  +head("Starter MVP")
   body
-    block content
-//NOT USED ANYMORE CAN BE DELETED OR LATER USED TO KEEP THINGS DRY
-//- add this if you want to use the code above it is like subclassing
-//extends layout
-//block content
+   header
+    include common/navbar.pug
+    +navbar()
+    .container
+      .row-align-items-center
+        .col-md-6.order-md-1.text-center.text-md-left.pr-md-5
+          block content
+   
+   include common/footer.pug
+   +footer()

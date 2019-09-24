@@ -2,6 +2,9 @@ extends ../layout
 
 block content
 
+  h1 Edit Lead
   form(action="/lead/" + lead.id + "/edit", method="POST")
-    input(name="lead_email", type="email", placeholder="Enter your email address", value=lead.email)
-    button(type="submit") Save
+    .input-group-mb3
+       input(name="lead_email", type="email", placeholder="Enter your email address", value=lead.email).form-control
+       .input-group-append
+          button(type="submit").btn.btn-primary Save
