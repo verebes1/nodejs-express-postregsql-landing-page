@@ -3,6 +3,8 @@ html(lang='en')
   include common/head.pug
   +head("Starter MVP")
   body
+   include common/navbar.pug
+   +navbar()
    h1 Lead
    p 
      span #{lead.email}

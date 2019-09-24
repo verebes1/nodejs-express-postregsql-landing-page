@@ -3,25 +3,25 @@ html(lang='en')
   include common/head.pug
   +head("Starter MVP")
   body
-  h1= title
-  p Welcome to #{title}
-  a(href="/leads") Show leads
-  form(action="/", method="POST")
-    input(name="lead_email", type="email", placeholder="Enter your email address")
-    button(type="submit") Submit
-  if leads
-    h1 Leads
-    for lead in leads
-      p(id=lead.id) 
-        span #{lead.email}
-        |
-        a(href="/lead/" + lead.id) Details
-        |
-        button(onclick=`deleteLead('${lead.id}')`) Delete
-
-  include common/footer.pug
-  +footer()
-  //- script(src='https://code.jquery.com/jquery-3.4.1.min.js')
-  script(src='/javascripts/leads.js')
-
-
+   include common/navbar.pug
+   +navbar()
+   h1= title
+   p Welcome to #{title}
+   a(href="/leads") Show leads
+   form(action="/", method="POST")
+     input(name="lead_email", type="email", placeholder="Enter your email address")
+     button(type="submit") Submit
+   if leads
+     h1 Leads
+     for lead in leads
+       p(id=lead.id) 
+         span #{lead.email}
+         |
+         a(href="/lead/" + lead.id) Details
+         |
+         button(onclick=`deleteLead('${lead.id}')`) Delete
+ 
+   include common/footer.pug
+   +footer()
+   //- script(src='https://code.jquery.com/jquery-3.4.1.min.js')
+   script(src='/javascripts/leads.js')
