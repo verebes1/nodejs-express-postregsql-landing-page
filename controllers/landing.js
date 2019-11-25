@@ -18,7 +18,7 @@ exports.submit_email = function(req, res, next) {
 
 exports.show_leads = function(req, res, next) {
 	return models.Lead.findAll().then(leads => {
-		res.render('lead/leads', { title: 'All Leads', leads: leads });
+		res.render('lead/leads', { title: 'All Leads', leads: leads, user: req.user, });
 	});
 }
 

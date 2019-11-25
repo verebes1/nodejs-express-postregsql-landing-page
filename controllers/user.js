@@ -10,11 +10,11 @@ const { validateUser } = require('../validators/signup');
 //Below is a request handler and in express.js the order is as below
 // req - request object, res - response object, next - next object
 exports.show_login = function(req, res, next) {
-	res.render('user/login', { formData: {}, errors: {} });
+	res.render('user/login', { formData: {}, user: req.user, errors: {} });
 }
 
 exports.show_signup = function(req, res, next) {
-	res.render('user/signup', { formData: {}, errors: {} });
+	res.render('user/signup', { formData: {}, user: req.user, errors: {} });
 }
 
 //Const in this context defines a function which is available only locally.
@@ -23,7 +23,7 @@ exports.show_signup = function(req, res, next) {
 //into the form fields. It gets put back once the form has been rerendered
 //to save the user time so there is no need to retype everything.
 const rerender_signup = function(errors, req, res, next) {
-	res.render('user/signup', { formData: req.body, errors: errors });
+	res.render('user/signup', { formData: req.body, user: req.user, errors: errors });
 }
 
 const generateHash = function(password) {
