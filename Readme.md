@@ -1,6 +1,3 @@
-Readme.md
-
-
 # Sales lead collecting Landing Page project using Node.js.
 
 Simple landing page for a new product using Node.js, Express.js and PostregSQL database.
