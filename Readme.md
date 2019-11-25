@@ -15,74 +15,96 @@ Templating engine for the frontend used: PUG, Bootstrap
 
 Clonde the repository and use the set of commands below to set your environment up:
 
-NODE-JS-SETUP COMMANDS WITH EXPRESS JS and PUG ENGINE INCLUDING POSTGRESQL
 
->To install node.js version 10.16.3 use below
-nvm install 10.16.3 
+To install node.js version 10.16.3 use below
 
->To switch to a different version of node installed
-nvm use 12.1.0
+>nvm install 10.16.3 
 
->Install ExpressJS express generator -g stands for global
-npm install express-generator -g
+To switch to a different version of node installed
 
->To generate an express project
->--view=pug - use the pug templating engine
-> myapp is the projects name
-express --view=pug myapp
+>nvm use 12.1.0
 
->install dependencies
-cd APPNAME
-npm install
+Install ExpressJS express generator -g stands for global
 
->run the app 
-DEBUG=myapp:* npm start
-or use startnode.sh APPNAME script that I have created
+>npm install express-generator -g
 
->install nodemon and then edit package.json start script
-npm install nodemon --save-dev
+To generate an express project
+--view=pug - use the pug templating engine
+myapp is the projects name
 
-"start": "if [[ $NODE_ENV == 'production' ]]; then node ./bin/www; else nodemon ./bin/www; fi"
+>express --view=pug myapp
 
->it's good to create a folder called controllers to controll routes better
+install dependencies
+
+>cd APPNAME
+>npm install
+
+run the app 
+
+>DEBUG=myapp:* npm start
+>or use startnode.sh APPNAME script that I have created
+
+Install nodemon and then edit package.json start script.
+
+>npm install nodemon --save-dev
+
+by replacing the scripts part of file with this:
+
+```
+  "scripts": {
+    "start": "if [[ $NODE_ENV == 'production' ]]; then node ./bin/www; else nodemon ./bin/www; fi"
+  },
+```
+
+It's good to create a folder called controllers to controll routes better
 in routes for example use to get index.js:
+
 ```
 let index = require('../controllers/index')
 
 router.get('/', index.getIndex)
 ```
->.gitignore important to have 
-node_modules
+Add a .gitignore file and include the node_modules in it: 
+>node_modules
 
->install postgresql
-brew install postgresql
+Install postgresql
 
->start postgresql once
-pg_ctl -D /usr/local/var/postgres start
+>brew install postgresql
 
->Get into postgress to setup database:
-psql postgres
+Start postgresql once (remember that you need to restart it once you restart your computer or just use the start script: 'startnode_and_db.sh')
 
->Create user to delete use DROP instead of CREATE
-CREATE ROLE "express-mvp-dbuser" WITH LOGIN PASSWORD '123.456';
+>pg_ctl -D /usr/local/var/postgres start
 
->Creater a database:
-CREATE DATABASE "express-mvp-db";
+Get into postgress to setup database:
 
->Install sequelize
-npm install sequelize
-npm install sequelize --save
+>psql postgres
 
->Install PG
-npm install pg --save
+Create user to delete use DROP instead of CREATE
 
->Install sequelize-cli
-npm install sequelize-cli -g
+>CREATE ROLE "express-mvp-dbuser" WITH LOGIN PASSWORD '123.456';
 
->in the root app folder create a .sequelizerc file
-touch .sequelizerc
+Creater a database:
 
->add the content:
+>CREATE DATABASE "express-mvp-db";
+
+Install sequelize
+
+>npm install sequelize
+>npm install sequelize --save
+
+Install PG
+
+>npm install pg --save
+
+Install sequelize-cli
+
+>npm install sequelize-cli -g
+
+In the root app folder create a .sequelizerc file
+
+>touch .sequelizerc
+
+add the content to .sequelizerc :
 ```
 const path = require('path');
 
@@ -94,12 +116,14 @@ module.exports = {
 }
 ```
 
->initialize sequelize
-sequelize init
+Initialize sequelize
 
->In the config/package.json file edit the database details and add "module.exports = " at the very begining
->actually the module.exports causes error 
-const path = require('path');
+>sequelize init
+
+In the config/package.json file edit the database details and add "module.exports = " at the very begining
+actually the module.exports causes error 
+
+>const path = require('path');
 >EXAMPLE 
 ```
 module.exports = {
@@ -110,16 +134,22 @@ module.exports = {
 }
 ```
 
->Once created a DB model and a migration file it is needed to initialize the migration
->We normally create migration files with todays date and time and the migration name for example:
+Once created a DB model and a migration file it is needed to initialize the migration
+We normally create migration files with todays date and time and the migration name for example:
+
 >201911250916-AddIsAdminFieldToUsers.js
-sequelize db:migrate
 
->Install passport.js for authentication www.passportjs.org
-npm install passport passport-local bcrypt validator express-session connect-flash --save
+Then use command below to perform the migration:
 
->Install lodash and validator
-npm install lodash validator --save
+>sequelize db:migrate
+
+Install passport.js for authentication www.passportjs.org
+
+>npm install passport passport-local bcrypt validator express-session connect-flash --save
+
+Install lodash and validator
+
+>npm install lodash validator --save
 
 ## DEMO:
 
