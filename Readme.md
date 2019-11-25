@@ -13,7 +13,7 @@ Templating engine for the frontend used: PUG, Bootstrap
 
 ## How to use.
 
-Clonde the repository and use the set of commands below to set your environment up:
+Clone the repository and use the set of commands below to set your environment up:
 
 
 To install node.js version 10.16.3 use below
