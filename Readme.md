@@ -39,7 +39,8 @@ install dependencies
 run the app 
 
 >DEBUG=myapp:* npm start
->or use startnode.sh APPNAME script that I have created
+
+or use startnode.sh APPNAME script that I have created
 
 Install nodemon and then edit package.json start script.
 
